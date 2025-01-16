@@ -11,4 +11,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Trigger Message
-              run: echo "triggered by event ${{ github.event_name }}"
+              run: echo "triggered by event ${{ github.event_name }} event"
