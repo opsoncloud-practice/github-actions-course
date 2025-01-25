@@ -29,5 +29,9 @@ jobs:
                 source venv/bin/activate
                 python helloworld/manage.py migrate 
 
+            - name: Run tests
+              run: |
+                source venv/bin/activate
+                python helloworld/manage.py test
 
             
