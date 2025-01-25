@@ -32,10 +32,10 @@ jobs:
     - name: Run migrations
       run: |
         source venv/bin/activate
-        python manage.py migrate
+        python helloworld/manage.py migrate
 
     # Run tests
     - name: Run tests
       run: |
         source venv/bin/activate
-        python manage.py test
+        python helloworldmanage.py test
