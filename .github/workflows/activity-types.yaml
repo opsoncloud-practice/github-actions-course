@@ -2,8 +2,7 @@ name: event and activity types
 on:
     pull_request: 
         types: 
-            - opened
-            - synchronize
+            - closed
         branches: 
             - main 
 
@@ -11,4 +10,4 @@ jobs:
     echo:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "trigger when a pr is raised or updated on main"
+            - run: echo "trigger when a pr is closed"
