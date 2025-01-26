@@ -11,4 +11,4 @@ jobs:
     echo:
         runs-on: ubuntu-latest
         steps:
-            - run: "trigger when a pr is raised or updated on main"
+            - run: echo "trigger when a pr is raised or updated on main"
