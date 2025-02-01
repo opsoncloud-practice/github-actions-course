@@ -2,10 +2,17 @@ name: context practice
 on: 
     push:
     workflow_dispatch: 
+env:
+  MY_WORKFLOW_VAR: 'workflow'
+  MY_OVERWRITTEN_VAR: 'workflow'
+
 
 jobs:
   echo-data:
     runs-on: ubuntu-latest
+    env:
+        MY_JOB_VAR: 'job'
+        MY_OVERWRITTEN_VAR: 'job'
     steps:
       - name: Display
         run: |
@@ -19,3 +26,10 @@ jobs:
       - name: Variables Data
         run: |
             echo "variable value: ${{ vars.APP_DEBUG }}"
+
+      - name: Print Env Variables
+        env:
+            MY_OVERWRITTEN_VAR: 'step'
+        run: |
+            echo "Workflow env: ${{ env.MY_WORKFLOW_VAR }}"
+            echo "Overwritten env: ${{ env.MY_OVERWRITTEN_VAR }}"
