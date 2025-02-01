@@ -16,6 +16,8 @@ env:
 jobs:
   echo-data:
     runs-on: ubuntu-latest
+    env:
+      OVERITTEN_WORKFLOW_VAR: 'job'
     steps:
       - name: Display
         run: |
