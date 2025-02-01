@@ -32,6 +32,8 @@ jobs:
         run: |
             echo "variable value: ${{ vars.APP_DEBUG }}"
       - name: Workflow Env Variable
+        env:
+          OVERITTEN_WORKFLOW_VAR: 'step'
         run: |
             echo "Workflow env: ${{ env.WORKFLOW_VAR }}"
             echo "Overitten Workflow env: ${{ env.OVERITTEN_WORKFLOW_VAR }}"
