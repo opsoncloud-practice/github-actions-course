@@ -1,7 +1,12 @@
 name: context practice
+run-name: context practice | DEBUG - ${{ inputs.debug }}
 on: 
     push:
     workflow_dispatch: 
+        inputs:
+          debug:
+            type: boolean
+            default: false
 
 jobs:
   echo-data:
