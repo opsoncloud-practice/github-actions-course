@@ -9,6 +9,10 @@ on:
             type: boolean
             default: false
 
+env:
+  WORKFLOW_VAR: 'workflow'
+  OVERITTEN_WORKFLOW_VAR: 'workflow'
+
 jobs:
   echo-data:
     runs-on: ubuntu-latest
@@ -25,3 +29,7 @@ jobs:
       - name: Variables Data
         run: |
             echo "variable value: ${{ vars.APP_DEBUG }}"
+      - name: Workflow Env Variable
+        run: |
+            echo "Workflow env: ${{ env.WORKFLOW_VAR }}"
+            echo "Overitten Workflow env: ${{ env.OVERITTEN_WORKFLOW_VAR }}"
