@@ -1,4 +1,5 @@
 name: usning expressions
+run-name: Using Expression | DEBUG - ${{ inputs.debug && 'ON' || 'OFF '}}
 
 on:
     push: 
@@ -21,4 +22,3 @@ jobs:
             - name: '[debug] print when triggred by main'
               if: inputs.debug && github.ref == 'refs/heads/main'
               run: echo "TRIGGRED BY MAIN"
-              
