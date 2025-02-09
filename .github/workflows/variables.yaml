@@ -19,7 +19,6 @@ jobs:
             - name: ENV VARS
               env:
                 STEP_VAR: 'Step Var'
-                OVERRIDE: 'OVERRIDE in step'
               run: |
                 echo "Step var: ${{ env.STEP_VAR }}"
                 echo "Job Var: ${{ env.JOB_VAR }}"
