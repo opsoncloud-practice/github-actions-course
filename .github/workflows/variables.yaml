@@ -13,7 +13,6 @@ jobs:
         runs-on: ubuntu-latest
         env:
             JOB_VAR: 'job var'
-            OVERRIDE: 'OVERRIDE in job'
 
         steps:
             - name: ENV VARS
