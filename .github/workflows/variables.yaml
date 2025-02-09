@@ -1,0 +1,27 @@
+name: variables
+
+on:
+    push: 
+    workflow_dispatch: 
+
+env:
+    WORKFLOW_VAR: 'THIS IS WORLFLOW LWVEL'
+    OVERRIDE: 'OVERRIDE VAR WORKFLOW'
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        env:
+            JOB_VAR: 'job var'
+            OVERRIDE: 'OVERRIDE in job'
+
+        steps:
+            - name: ENV VARS
+              env:
+                STEP_VAR: 'Step Var'
+                OVERRIDE: 'OVERRIDE in step'
+              run: |
+                echo "Step var: ${{ env.STEP_VAR }}"
+                echo "Job Var: ${{ env.JOB_VAR }}"
+                echo "Workflow Var: ${{ env.WORKFLOW_VAR }}"
+                echo "OVR VAR: ${{ env.OVERRIDE }}"
