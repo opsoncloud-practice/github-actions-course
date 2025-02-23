@@ -7,6 +7,7 @@ on:
 env:
     WORKFLOW_VAR: 'THIS IS WORLFLOW LWVEL'
     OVERRIDE: 'OVERRIDE VAR WORKFLOW'
+    UNDEFINED_VAR: ${{ vars.UNDEFINED_VARS || 'default var' }}
 
 jobs:
     echo:
@@ -23,3 +24,29 @@ jobs:
                 echo "Job Var: ${{ env.JOB_VAR }}"
                 echo "Workflow Var: ${{ env.WORKFLOW_VAR }}"
                 echo "OVR VAR: ${{ env.OVERRIDE }}"
+    echo2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print variable
+              run: |
+                echo "Org var: ${{ vars.ORG_VAR}}"
+                echo "org overwritten var: ${{ vars.OVERWRITTEN_VAR }}"
+                echo "repo var: ${{ vars.REPOSITORY_VAR }}"
+    echo-prod:
+        runs-on: ubuntu-latest
+        steps:
+          - name: print prod vars
+            run: |
+                echo "Org var: ${{ vars.ORG_VAR}}"
+                echo "org overwritten var: ${{ vars.OVERWRITTEN_VAR }}"
+                echo "repo var: ${{ vars.REPOSITORY_VAR }}"
+                echo "target var: ${{ vars.TARGET_VAR}}"
+    echo-undefined:
+        runs-on: ubuntu-latest
+        steps:
+          - name: undefined var 
+            run: |
+                echo "undevined var: ${{ env.UNDEFINED_VAR }}"
+
+
+
