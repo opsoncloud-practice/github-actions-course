@@ -10,8 +10,8 @@ jobs:
     steps:
       - name:  Sleep for 10 sec
         run: sleep 10
-      - name: Failing Step
-        run: exit 1
+      # - name: Failing Step
+      #   run: exit 1
       - name: I will be skipped
         if: ${{ success() }}
         run: echo "skipped it it is sucess"
