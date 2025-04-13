@@ -1,0 +1,26 @@
+name: using function
+
+on:
+  pull_request: 
+  workflow_dispatch: 
+
+jobs:
+  echo1:
+    runs-on: ubuntu-latest
+    steps:
+      - name:  Sleep for 10 sec
+        run: Sleep 10
+      - name: Failing Step
+        run: exit 1
+      - name: I will be skipped
+        if: ${{ success() }}
+        run: echo "skipped it it is sucess"
+      - name: Execute On Failure
+        if: ${{ failure() }}
+        run: echo "previous step fails"
+      - name: Will execute 
+        if: ${{ !cancelled() }}
+        run: echo "Print if it is not cancelled"
+      - name: When Cancelled
+        if: ${{ cancelled() }}
+        run: echo "workflow cancelled"
